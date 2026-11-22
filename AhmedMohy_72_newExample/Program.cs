@@ -35,7 +35,7 @@ Console.WriteLine($"Account Currency: {myAccount2.AccountCurrency}");
 Console.WriteLine($"Account Balance: {myAccount2.AccountBalance}");
 Console.WriteLine("---------------------------");
 myAccount1.Deposit(500);
-myAccount1.Withdraw(-400);
+myAccount1.Withdraw(400);
 Console.WriteLine($"Account Balance One : {myAccount1.AccountBalance}");
 Console.WriteLine("---------------------------------");
 myAccount2.Deposit(1000);
