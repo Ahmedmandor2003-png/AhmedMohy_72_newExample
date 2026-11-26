@@ -48,7 +48,6 @@ Console.WriteLine($"Account Balance Two: {myAccount2.AccountBalance}");
 Console.WriteLine($"Account Balance One : {myAccount1.AccountBalance}");
 Console.WriteLine("----------Statement----------");
  
-
 myAccount1.PrintStatement();
 myAccount2.PrintStatement();
 
