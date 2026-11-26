@@ -7,7 +7,7 @@ myAccount1.BranchAddress = "456 Nile St, Cairo, Egypt";
 myAccount1.AccountNumber = "EG456789";
 myAccount1.AccountCurrency = "EGP";
 myAccount1.AccountBalance = 2000;
-//myAccount1.AccountBalance = 999;
+
 
 BankAccount myAccount2 = new BankAccount();
 myAccount2.ClientName = "David";
@@ -46,6 +46,12 @@ myAccount1.Transfer(myAccount2, 300);
 Console.WriteLine("After Transfer.");
 Console.WriteLine($"Account Balance Two: {myAccount2.AccountBalance}");
 Console.WriteLine($"Account Balance One : {myAccount1.AccountBalance}");
+Console.WriteLine("----------Statement----------");
+ 
+
+myAccount1.PrintStatement();
+myAccount2.PrintStatement();
+
 Console.ReadLine();
 
 
@@ -146,11 +152,17 @@ class BankAccount
         }
 
     }
-
-
+     
+    public void PrintStatement() 
+    
+    {
+        Console.WriteLine($"Account Number: {AccountNumber}");
+        Console.WriteLine($"Account Balance: {AccountBalance}");
+        Console.WriteLine($"Account Currency: {AccountCurrency}");
+    }
     public void ChangePassword() { }
     public void CreateSubAccount() { }
-    public void PrintStatement() { }
+   
 
     
 }
