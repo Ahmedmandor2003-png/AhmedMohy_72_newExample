@@ -1,5 +1,8 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 BankAccount myAccount1 = new BankAccount();
+
 myAccount1.ClientName = "Ahmed";
 myAccount1.BankName = "Bank of Egypt";
 myAccount1.BranchName = "Cairo Branch";
@@ -7,6 +10,9 @@ myAccount1.BranchAddress = "456 Nile St, Cairo, Egypt";
 myAccount1.AccountNumber = "EG456789";
 myAccount1.AccountCurrency = "EGP";
 myAccount1.AccountBalance = 2000;
+
+//BankAccount myAccount1 = new BankAccount("Ahmed", "Bank of Egypt", "Cairo Branch",
+    //"456 Nile St, Cairo, Egypt", "EG456789", "EGP", 2000);
 
 
 BankAccount myAccount2 = new BankAccount();
@@ -51,11 +57,32 @@ Console.WriteLine("----------Statement----------");
 myAccount1.PrintStatement();
 myAccount2.PrintStatement();
 
+Console.WriteLine("change password");
+
+myAccount1.ChangePassword("12345", "56789");
+myAccount2.ChangePassword("12345", "55555");
+
 Console.ReadLine();
 
 
 class BankAccount
 {
+    /*
+    public BankAccount(string ClientName, string BankName, string BranchName, string BranchAddress, 
+        string AccountNumber, string AccountCurrency,decimal AccountBalance)
+    {
+        // Default constructor
+        ClientName = ClientName;
+        BankName = BankName;
+        BranchName = BranchName;
+        BranchAddress = BranchAddress;
+        AccountNumber = AccountNumber;
+        AccountCurrency = AccountCurrency;
+        AccountBalance = AccountBalance;
+    }
+    
+    */
+    
     public string ClientName {  get; set; }
     public string BankName { get; set; }
 
@@ -66,8 +93,26 @@ class BankAccount
     public string AccountNumber { get; set; }
 
     public string AccountCurrency { get; set; }
-
+    
     public decimal AccountBalance { get;  set; }
+    
+    
+
+    public string Password { get; private set; } = "12345";
+    
+
+    public void ChangePassword(string oldPassword, string newPassword)
+    {
+        if (oldPassword  != Password)
+        {
+            Console.WriteLine("Invalid old password.");
+            return;
+        }
+
+        Password = newPassword;
+        Console.WriteLine("Password changed successfully.");
+    }
+
 
 
 
@@ -159,7 +204,7 @@ class BankAccount
         Console.WriteLine($"Account Balance: {AccountBalance}");
         Console.WriteLine($"Account Currency: {AccountCurrency}");
     }
-    public void ChangePassword() { }
+    //public void ChangePassword() { }
     public void CreateSubAccount() { }
    
 
